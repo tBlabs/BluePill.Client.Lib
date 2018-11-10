@@ -18,9 +18,11 @@ class Display extends IO_1.IO {
             this.value = stateChange.Current.Value;
         if (addr === this.dotAddr)
             this.dot = stateChange.Current.Value;
+        if (this.onValueChangeCallback)
+            this.onValueChangeCallback(stateChange);
     }
     OnValueChange(callback) {
-        throw new Error("Method not implemented.");
+        this.onValueChangeCallback = callback;
     }
     set Value(value) {
         this.connection.Set(this.valueAddr, value);

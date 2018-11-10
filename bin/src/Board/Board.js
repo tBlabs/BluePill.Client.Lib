@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const DigitalOutput_1 = require("./IO/DigitalOutput");
 const DigitalInput_1 = require("./IO/DigitalInput");
-const Addr_1 = require("./Addr");
+const DigitalOutput_1 = require("./IO/DigitalOutput");
 const AdcInput_1 = require("./IO/AdcInput");
 const PwmOutput_1 = require("./IO/PwmOutput");
 const Display_1 = require("./IO/Display");
+const Addr_1 = require("./Addr");
 const IO_1 = require("./IO/IO");
 class Board {
     constructor(connector) {

@@ -19,11 +19,15 @@ export class Display extends IO implements IDisplay
     {
         if (addr === this.valueAddr) this.value = stateChange.Current.Value;
         if (addr === this.dotAddr) this.dot = stateChange.Current.Value;
+
+        if (this.onValueChangeCallback)
+            this.onValueChangeCallback(stateChange);
     }
-    
+
+    private onValueChangeCallback?: StateChangeCallback;
     OnValueChange(callback: StateChangeCallback): void
     {
-        throw new Error("Method not implemented.");
+        this.onValueChangeCallback = callback;
     }
 
     public MaxValue: number = 9999;

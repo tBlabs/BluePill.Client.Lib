@@ -1,13 +1,11 @@
-import { DigitalOutput, IDigitalOutput } from "./IO/DigitalOutput";
-import { DigitalInput, IDigitalInput } from "./IO/DigitalInput";
-import { Sensor } from "./IO/Sensor";
+import { IDigitalInput, DigitalInput } from "./IO/DigitalInput";
+import { IDigitalOutput, DigitalOutput } from "./IO/DigitalOutput";
+import { IAdcInput, AdcInput } from "./IO/AdcInput";
+import { IPwmOutput, PwmOutput } from "./IO/PwmOutput";
+import { IDisplay, Display } from "./IO/Display";
 import { Addr } from "./Addr";
 import { IBoardConnector } from "../Connectors/IBoardConnector";
 import { StateChange } from "./StateChange";
-import { IAdcInput, AdcInput } from "./IO/AdcInput";
-import { PwmOutput, IPwmOutput } from "./IO/PwmOutput";
-import { Actuator } from "./IO/Actuator";
-import { Display, IDisplay } from "./IO/Display";
 import { IO } from "./IO/IO";
 
 export class Board
