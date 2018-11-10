@@ -1,8 +1,10 @@
-import { StateChange } from "./StateChange";
-import { StateChangeCallback } from "./StateChangeCallback";
-import { IBoardConnector } from "../Connectors/IBoardConnector";
+import { StateChangeCallback } from "../StateChangeCallback";
+import { IBoardConnector } from "../../Connectors/IBoardConnector";
+import { StateChange } from "../StateChange";
+import { IO } from "./IO";
+import { Addr } from "../Addr";
 
-export abstract class Actuator
+export abstract class Actuator extends IO
 {
     private onChangeCallback?: StateChangeCallback;
 
@@ -12,9 +14,11 @@ export abstract class Actuator
     }
 
     constructor(
-        protected addr: number,
+        public addr: number,
         private connector: IBoardConnector)
-    { }
+    { 
+        super();
+    }
 
     private value: number = 0;
 
@@ -28,7 +32,7 @@ export abstract class Actuator
         return this.value;
     }
 
-    public UpdateFromHost(stateChange: StateChange): void
+    public UpdateFromHost(addr: Addr, stateChange: StateChange): void
     {
         this.value = stateChange.Current.Value;
 

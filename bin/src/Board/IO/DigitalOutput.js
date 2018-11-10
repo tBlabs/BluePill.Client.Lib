@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Actuator_1 = require("../Actuator");
+const Actuator_1 = require("../IO/Actuator");
 class DigitalOutput extends Actuator_1.Actuator {
     constructor(addr, connection) {
         super(addr, connection);

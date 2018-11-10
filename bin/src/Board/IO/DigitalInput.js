@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Sensor_1 = require("../Sensor");
+const Sensor_1 = require("./Sensor");
 class DigitalInput extends Sensor_1.Sensor {
     constructor(addr) {
-        super();
+        super(addr);
         this.addr = addr;
     }
     OnKeyPress(callback) {

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const SocketIoClient = require("socket.io-client");
 const StateChange_1 = require("../Board/StateChange");
-class BoardConnector {
+class BoardSocketConnector {
     MapIoStateToStateChange(ioState) {
         return new StateChange_1.StateChange(new StateChange_1.Measurement(ioState.currentValue, ioState.currentValueUpdateTimestamp), new StateChange_1.Measurement(ioState.previousValue, ioState.previousValueUpdateTimestamp));
     }
@@ -20,7 +20,6 @@ class BoardConnector {
                     this.OnUpdate(addr, stateChange);
             });
         });
-        // this.socket.on('update', (addr: Addr, currentValue: number, currentValueTimestamp: number, previousValue: number, previousValueTimestamp: number) =>
         this.socket.on('update', (ioState) => {
             const addr = ioState.addr;
             const stateChange = this.MapIoStateToStateChange(ioState);
@@ -35,5 +34,5 @@ class BoardConnector {
         this.socket.emit('get', addr);
     }
 }
-exports.BoardConnector = BoardConnector;
+exports.BoardSocketConnector = BoardSocketConnector;
 //# sourceMappingURL=BoardSocketConnector.js.map

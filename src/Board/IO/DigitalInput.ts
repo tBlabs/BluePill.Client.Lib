@@ -1,5 +1,5 @@
 import { StateChange } from "../StateChange";
-import { Sensor } from "../Sensor";
+import { Sensor } from "./Sensor";
 import { Addr } from "../Addr";
 import { StateChangeCallback } from "../StateChangeCallback";
 
@@ -16,18 +16,21 @@ export interface IDigitalInput
 export class DigitalInput extends Sensor implements IDigitalInput
 {
     private onKeyPressCallback?: StateChangeCallback;
+    private onLongKeyPressCallback?: StateChangeCallback;
+
     OnKeyPress(callback: StateChangeCallback): void
     {
         this.onKeyPressCallback = callback;
     }
-    private onLongKeyPressCallback?: StateChangeCallback;
+
     OnLongKeyPress(callback: StateChangeCallback): void
     {
         this.onLongKeyPressCallback = callback;
     }
+
     constructor(public addr: Addr)
     {
-        super();
+        super(addr);
     }
 
     public ExecuteEvents(stateChange: StateChange): void
@@ -37,6 +40,7 @@ export class DigitalInput extends Sensor implements IDigitalInput
         if (this.IsPress(stateChange, 30, 500))
             if (this.onKeyPressCallback)
                 this.onKeyPressCallback(stateChange);
+
         if (this.IsPress(stateChange, 500, 3000))
             if (this.onLongKeyPressCallback)
                 this.onLongKeyPressCallback(stateChange);

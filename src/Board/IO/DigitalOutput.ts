@@ -1,5 +1,5 @@
 import { Addr } from "../Addr";
-import { Actuator } from "../Actuator";
+import { Actuator } from "../IO/Actuator";
 import { IBoardConnector } from "../../Connectors/IBoardConnector";
 import { StateChangeCallback } from "../StateChangeCallback";
 

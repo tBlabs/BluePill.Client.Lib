@@ -1,8 +1,15 @@
-import { StateChange } from "./StateChange";
-import { StateChangeCallback } from "./StateChangeCallback";
+import { StateChange } from "../StateChange";
+import { StateChangeCallback } from "../StateChangeCallback";
+import { IO } from "./IO";
+import { Addr } from "../Addr";
 
-export abstract class Sensor
+export abstract class Sensor extends IO
 {
+    constructor(public addr: Addr)
+    { 
+        super();
+    }
+    
     private onChangeCallback?: StateChangeCallback;
     private onRisingCallback?: StateChangeCallback;
     private onFallingCallback?: StateChangeCallback;
@@ -11,10 +18,12 @@ export abstract class Sensor
     {
         this.onChangeCallback = callback;
     }
+
     public OnRising(callback: StateChangeCallback): void
     {
         this.onRisingCallback = callback;
     }
+    
     public OnFalling(callback: StateChangeCallback): void
     {
         this.onFallingCallback = callback;
@@ -42,7 +51,7 @@ export abstract class Sensor
         return this.value;
     }
 
-    public UpdateFromHost(stateChange: StateChange): void
+    public UpdateFromHost(addr: Addr, stateChange: StateChange): void
     {
         this.value = stateChange.Current.Value;
 

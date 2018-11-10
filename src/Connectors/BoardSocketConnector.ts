@@ -4,7 +4,7 @@ import { IoState } from "./IoState";
 import { StateChange, Measurement } from "../Board/StateChange";
 import { Addr } from "../Board/Addr";
 
-export class BoardConnector implements IBoardConnector
+export class BoardSocketConnector implements IBoardConnector
 {
     private socket;
     
