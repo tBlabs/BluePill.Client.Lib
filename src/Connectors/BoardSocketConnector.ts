@@ -40,7 +40,6 @@ export class BoardConnector implements IBoardConnector
             });
         });
         
-        // this.socket.on('update', (addr: Addr, currentValue: number, currentValueTimestamp: number, previousValue: number, previousValueTimestamp: number) =>
         this.socket.on('update', (ioState: IoState) =>
         {
             const addr = ioState.addr;
