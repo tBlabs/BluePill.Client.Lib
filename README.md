@@ -11,13 +11,13 @@ Board Connector is a class implementing IBoardConnector interface. This interfac
 
 ## IO types and their properites
 
-| Type              | Setters    | Getters     | Events                                                |
-| ----------------- | ---------- | ----------- | ----------------------------------------------------- |
-| DigitalInput      | *none*     | Value       | OnChange, OnRising, OnFalling, OnPress, OnLongPress   |
-| AdcInput          | *none*     | Value       | OnChange, OnRising, OnFalling                         |
-| DigitalOutput     | Value      | Value       | OnChange                                              |
-| PwmOutput         | Value      | Value       | OnChange                                              |
-| Display           | Value, Dot | Value, Dot  | OnChange                                              |
+| Type              | Setters    | Getters         | Methods               | Events                                                |
+| ----------------- | ---------- | --------------- | --------------------- | ----------------------------------------------------- |
+| DigitalInput      | *none*     | Value           | *none*                | OnChange, OnRising, OnFalling, OnPress, OnLongPress   |
+| AdcInput          | *none*     | Value, MaxValue | *none*                | OnChange, OnRising, OnFalling                         |
+| DigitalOutput     | Value      | Value           | On(), Off(), Toggle() | OnChange                                              |
+| PwmOutput         | Value      | Value, MaxValue | *none*                | OnChange                                              |
+| Display           | Value, Dot | Value, Dot      | OnChange              | OnChange                                              |
 
 # Usage
 
