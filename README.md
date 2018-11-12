@@ -1,7 +1,34 @@
+
 # TODO
 
 - all events callbacks should be streams or events emitters/Rx cause now we can attach only one action to each event
 - remove RTC?
+
+# BluePill.Client.Lib
+
+Is a client for a `BluePill development board` in a form of library.  
+It is distributed as a node package with TypeScript definition file.  
+
+## Install
+
+`npm i bluepill.client.lib`
+
+## Import
+
+`import { BluePillSocketConnector, BluePillBoard } from 'bluepill.client.lib';`
+
+## Usage
+
+```
+const connectionString = 'http://localhost:3000';
+const connector = new BluePillSocketConnector(connectionString);
+const board = new BLuePillBoard(connector);
+
+board.Input1.OnPress.subscribe(() =>
+{
+    board.Output1.Toggle();
+});
+```
 
 # Connectors
 
@@ -17,7 +44,7 @@ Board Connector is a class implementing IBoardConnector interface. This interfac
 | AdcInput          | *none*     | Value, MaxValue | *none*                | OnChange, OnRising, OnFalling                         |
 | DigitalOutput     | Value      | Value           | On(), Off(), Toggle() | OnChange                                              |
 | PwmOutput         | Value      | Value, MaxValue | *none*                | OnChange                                              |
-| Display           | Value, Dot | Value, Dot      | OnChange              | OnChange                                              |
+| Display           | Value, Dot | Value, Dot, MaxValue, MaxDotValue | *none* | OnValueChange                                      |
 
 # Usage
 
