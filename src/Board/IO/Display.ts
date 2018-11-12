@@ -15,7 +15,7 @@ export interface IDisplay
 
 export class Display extends IO implements IDisplay
 {
-    UpdateFromHost(addr: Addr, stateChange: StateChange): void
+    public UpdateFromHost(addr: Addr, stateChange: StateChange): void
     {
         if (addr === this.valueAddr) this.value = stateChange.Current.Value;
         if (addr === this.dotAddr) this.dot = stateChange.Current.Value;
@@ -25,7 +25,8 @@ export class Display extends IO implements IDisplay
     }
 
     private onValueChangeCallback?: StateChangeCallback;
-    OnValueChange(callback: StateChangeCallback): void
+    
+    public OnValueChange(callback: StateChangeCallback): void
     {
         this.onValueChangeCallback = callback;
     }

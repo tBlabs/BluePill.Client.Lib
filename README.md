@@ -1,6 +1,13 @@
 # TODO
 
-- all event callbacks should be streams or events emitters cause now we can attach only one action to each event
+- all events callbacks should be streams or events emitters cause now we can attach only one action to each event
+- remove RTC?
+
+# Connectors
+
+# Board
+
+# Usage
 
 # Example
 

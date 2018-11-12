@@ -9,8 +9,11 @@ class BoardSocketConnector {
     constructor(connectionString) {
         this.socket = SocketIoClient(connectionString);
         this.socket.on('connect', () => {
+            console.log('connected on', this.socket.id);
             this.socket.emit('get-all');
         });
+        // this.socket.on('reconnect', (err) => console.log('recon', err));
+        this.socket.on('disconnect', (err) => console.log('disc', err));
         this.socket.on('error', (err) => console.log(err));
         this.socket.on('update-all', (allIo) => {
             allIo.forEach((ioState) => {

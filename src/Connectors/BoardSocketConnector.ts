@@ -3,10 +3,11 @@ import * as SocketIoClient from 'socket.io-client';
 import { IoState } from "./IoState";
 import { StateChange, Measurement } from "../Board/StateChange";
 import { Addr } from "../Board/Addr";
+import { Socket } from "socket.io-client";
 
 export class BoardSocketConnector implements IBoardConnector
 {
-    private socket;
+    private socket: SocketIOClient.Socket;
     
     public OnUpdate!: (addr: Addr, stateChange: StateChange) => void;
 
@@ -17,15 +18,20 @@ export class BoardSocketConnector implements IBoardConnector
             new Measurement(ioState.previousValue, ioState.previousValueUpdateTimestamp));
     }
 
-    constructor(connectionString)
+    constructor(connectionString: string)
     {
         this.socket = SocketIoClient(connectionString);
-
+        
         this.socket.on('connect', () =>
         {
+            console.log('connected on', this.socket.id);
             this.socket.emit('get-all');
         });
 
+        
+
+        // this.socket.on('reconnect', (err) => console.log('recon', err));
+        this.socket.on('disconnect', (err) => console.log('disc', err));
         this.socket.on('error', (err) => console.log(err));
 
         this.socket.on('update-all', (allIo: IoState[]) =>
