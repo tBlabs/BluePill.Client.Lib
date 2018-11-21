@@ -1,0 +1,34 @@
+import { IDigitalInput } from "./IO/DigitalInput";
+import { IDigitalOutput, DigitalOutput } from "./IO/DigitalOutput";
+import { IAdcInput } from "./IO/AdcInput";
+import { IPwmOutput } from "./IO/PwmOutput";
+import { IDisplay } from "./IO/Display";
+import { IBoardConnector } from "../Connectors/IBoardConnector";
+export declare class Board {
+    readonly Input1: IDigitalInput;
+    readonly Input2: IDigitalInput;
+    readonly Input3: IDigitalInput;
+    readonly Input4: IDigitalInput;
+    readonly Input5: IDigitalInput;
+    readonly Input6: IDigitalInput;
+    readonly Input7: IDigitalInput;
+    readonly Adc1: IAdcInput;
+    readonly Adc2: IAdcInput;
+    readonly Adc3: IAdcInput;
+    readonly Adc4: IAdcInput;
+    readonly Output1: IDigitalOutput;
+    readonly Output2: IDigitalOutput;
+    readonly Output3: IDigitalOutput;
+    readonly Output4: IDigitalOutput;
+    readonly Output5: IDigitalOutput;
+    readonly Output6: IDigitalOutput;
+    readonly Output7: IDigitalOutput;
+    readonly XXXXXX: DigitalOutput;
+    readonly Pwm1: IPwmOutput;
+    readonly Pwm2: IPwmOutput;
+    readonly Pwm3: IPwmOutput;
+    readonly Pwm4: IPwmOutput;
+    readonly Display1: IDisplay;
+    constructor(connector: IBoardConnector);
+    private IoByAddr;
+}

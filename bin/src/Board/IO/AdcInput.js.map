@@ -1,1 +1,0 @@
-{"version":3,"file":"AdcInput.js","sourceRoot":"","sources":["../../../../src/Board/IO/AdcInput.ts"],"names":[],"mappings":";;AAAA,qCAAkC;AAclC,MAAa,QAAS,SAAQ,eAAM;IAEhC,YAAmB,IAAU;QAEzB,KAAK,CAAC,IAAI,CAAC,CAAC;QAFG,SAAI,GAAJ,IAAI,CAAM;QAKtB,aAAQ,GAAG,GAAG,CAAC;IAFtB,CAAC;IAIM,aAAa,CAAC,WAAwB;QAEzC,IAAI,CAAC,eAAe,CAAC,WAAW,CAAC,CAAC;IACtC,CAAC;CACJ;AAbD,4BAaC"}

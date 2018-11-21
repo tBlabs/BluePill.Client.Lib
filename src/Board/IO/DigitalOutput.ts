@@ -21,6 +21,11 @@ export class DigitalOutput extends Actuator
         super(addr, connection);
     }
 
+    public get MaxValue(): number
+    {
+        return 1;
+    }
+
     public On(): void
     {
         this.connection.Set(this.addr, 1);

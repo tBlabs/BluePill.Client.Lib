@@ -3,6 +3,6 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(require("./src/Board/Board"));
-__export(require("./src/Connectors/BoardSocketConnector"));
+__export(require("./Board/Board"));
+__export(require("./Connectors/BoardSocketConnector"));
 //# sourceMappingURL=index.js.map

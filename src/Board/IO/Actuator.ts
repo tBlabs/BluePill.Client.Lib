@@ -16,7 +16,7 @@ export abstract class Actuator extends IO
     constructor(
         public addr: number,
         private connector: IBoardConnector)
-    { 
+    {
         super();
     }
 
@@ -24,6 +24,16 @@ export abstract class Actuator extends IO
 
     public set Value(value: number)
     {
+        if (value < 0)
+        {
+            throw new Error(`Value can not be lower than zero, but ${ value } was given`);
+        }
+
+        if (value > this.MaxValue)
+        {
+            throw new Error(`Max value is ${ this.MaxValue }, but ${ value } was given`);
+        }
+
         this.connector.Set(this.addr, value);
     }
 

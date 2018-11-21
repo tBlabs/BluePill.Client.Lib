@@ -18,12 +18,12 @@ export class DigitalInput extends Sensor implements IDigitalInput
     private onKeyPressCallback?: StateChangeCallback;
     private onLongKeyPressCallback?: StateChangeCallback;
 
-    OnKeyPress(callback: StateChangeCallback): void
+    public OnKeyPress(callback: StateChangeCallback): void
     {
         this.onKeyPressCallback = callback;
     }
 
-    OnLongKeyPress(callback: StateChangeCallback): void
+    public OnLongKeyPress(callback: StateChangeCallback): void
     {
         this.onLongKeyPressCallback = callback;
     }
@@ -31,6 +31,11 @@ export class DigitalInput extends Sensor implements IDigitalInput
     constructor(public addr: Addr)
     {
         super(addr);
+    }
+
+    public get MaxValue(): number
+    {
+        return 1;
     }
 
     public ExecuteEvents(stateChange: StateChange): void

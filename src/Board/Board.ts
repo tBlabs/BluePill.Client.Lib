@@ -1,12 +1,13 @@
 import { IDigitalInput, DigitalInput } from "./IO/DigitalInput";
 import { IDigitalOutput, DigitalOutput } from "./IO/DigitalOutput";
-import { IAdcInput, AdcInput } from "./IO/AdcInput";
-import { IPwmOutput, PwmOutput } from "./IO/PwmOutput";
+import { IAnalogInput, AnalogInput } from "./IO/AnalogInput";
+import { IAnalogOutput, AnalogOutput } from "./IO/AnalogOutput";
 import { IDisplay, Display } from "./IO/Display";
 import { Addr } from "./Addr";
 import { IBoardConnector } from "../Connectors/IBoardConnector";
 import { StateChange } from "./StateChange";
 import { IO } from "./IO/IO";
+import { Clock } from "./IO/Clock";
 
 export class Board
 {
@@ -17,10 +18,10 @@ export class Board
     public readonly Input5: IDigitalInput;
     public readonly Input6: IDigitalInput;
     public readonly Input7: IDigitalInput;
-    public readonly Adc1: IAdcInput;
-    public readonly Adc2: IAdcInput;
-    public readonly Adc3: IAdcInput;
-    public readonly Adc4: IAdcInput;
+    public readonly Adc1: IAnalogInput;
+    public readonly Adc2: IAnalogInput;
+    public readonly Adc3: IAnalogInput;
+    public readonly Adc4: IAnalogInput;
     public readonly Output1: IDigitalOutput;
     public readonly Output2: IDigitalOutput;
     public readonly Output3: IDigitalOutput;
@@ -28,11 +29,11 @@ export class Board
     public readonly Output5: IDigitalOutput;
     public readonly Output6: IDigitalOutput;
     public readonly Output7: IDigitalOutput;
-    public readonly XXXXXX: DigitalOutput;
-    public readonly Pwm1: IPwmOutput;
-    public readonly Pwm2: IPwmOutput;
-    public readonly Pwm3: IPwmOutput;
-    public readonly Pwm4: IPwmOutput;
+    public readonly Clock1: Clock;
+    public readonly Pwm1: IAnalogOutput;
+    public readonly Pwm2: IAnalogOutput;
+    public readonly Pwm3: IAnalogOutput;
+    public readonly Pwm4: IAnalogOutput;
     public readonly Display1: IDisplay;
 
     constructor(connector: IBoardConnector)
@@ -44,10 +45,10 @@ export class Board
         this.Input5 = new DigitalInput(Addr.Input5);
         this.Input6 = new DigitalInput(Addr.Input6);
         this.Input7 = new DigitalInput(Addr.Input7);
-        this.Adc1 = new AdcInput(Addr.Adc1);
-        this.Adc2 = new AdcInput(Addr.Adc2);
-        this.Adc3 = new AdcInput(Addr.Adc3);
-        this.Adc4 = new AdcInput(Addr.Adc4);
+        this.Adc1 = new AnalogInput(Addr.Adc1);
+        this.Adc2 = new AnalogInput(Addr.Adc2);
+        this.Adc3 = new AnalogInput(Addr.Adc3);
+        this.Adc4 = new AnalogInput(Addr.Adc4);
         this.Output1 = new DigitalOutput(Addr.Output1, connector);
         this.Output2 = new DigitalOutput(Addr.Output2, connector);
         this.Output3 = new DigitalOutput(Addr.Output3, connector);
@@ -55,11 +56,11 @@ export class Board
         this.Output5 = new DigitalOutput(Addr.Output5, connector);
         this.Output6 = new DigitalOutput(Addr.Output6, connector);
         this.Output7 = new DigitalOutput(Addr.Output7, connector);
-        this.Pwm1 = new PwmOutput(Addr.Pwm1, connector);
-        this.Pwm2 = new PwmOutput(Addr.Pwm2, connector);
-        this.Pwm3 = new PwmOutput(Addr.Pwm3, connector);
-        this.Pwm4 = new PwmOutput(Addr.Pwm4, connector);
-        this.XXXXXX = new DigitalOutput(Addr.RTC, connector);
+        this.Pwm1 = new AnalogOutput(Addr.Pwm1, connector);
+        this.Pwm2 = new AnalogOutput(Addr.Pwm2, connector);
+        this.Pwm3 = new AnalogOutput(Addr.Pwm3, connector);
+        this.Pwm4 = new AnalogOutput(Addr.Pwm4, connector);
+        this.Clock1 = new Clock(Addr.RTC, connector);
         this.Display1 = new Display(Addr.Display1, Addr.Display1Dot, connector);
 
         connector.OnUpdate = (addr: Addr, stateChange: StateChange) =>

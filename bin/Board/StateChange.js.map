@@ -1,0 +1,1 @@
+{"version":3,"file":"StateChange.js","sourceRoot":"","sources":["../../src/Board/StateChange.ts"],"names":[],"mappings":";;AAAA,MAAa,WAAW;IAEpB,YACW,KAAa,EACb,SAAiB;QADjB,UAAK,GAAL,KAAK,CAAQ;QACb,cAAS,GAAT,SAAS,CAAQ;IAC1B,CAAC;CACN;AAND,kCAMC;AAED,MAAa,WAAW;IAEpB,YACW,OAAoB,EACpB,QAAqB;QADrB,YAAO,GAAP,OAAO,CAAa;QACpB,aAAQ,GAAR,QAAQ,CAAa;IAC9B,CAAC;CACN;AAND,kCAMC"}
