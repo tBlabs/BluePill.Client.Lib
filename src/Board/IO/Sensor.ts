@@ -53,6 +53,7 @@ export abstract class Sensor extends IO
 
     public UpdateFromHost(addr: Addr, stateChange: StateChange): void
     {
+      //  console.log('UPDATE', addr, stateChange);
         this.value = stateChange.Current.Value;
 
         this.ExecuteEvents(stateChange);

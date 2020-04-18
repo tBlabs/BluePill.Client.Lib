@@ -1,6 +1,6 @@
 {
     "name": "bluepill-client-library",
-    "version": "1.0.8",
+    "version": "1.1.0",
     "description": "remote driver for bluepill board",
     "main": "./bin/startup.js",
     "author": "tB",
@@ -17,13 +17,14 @@
         "watch": "tsc --watch",
         "monitor": "nodemon ./bin/startup.js",
         "serve": "npm run clean && run-p watch monitor",
+        "serve:win": "run-p watch monitor",
         "lint": "tslint -c tslint.json './src/**/*.{ts,tsx}' --format msbuild",
         "test": "jest --runInBand",
         "build": "tsc -p .",
         "clean": "rm ./bin -rf",
         "autofix": "tslint --fix --project .",
-        "sample": "tsc || node ./bin/TestApps/sample.app.js",
-        "quick_publish": "npm run clean && tsc && update_version && npm publish"
+        "sample": "node .\\bin\\TestApps\\sample2.app.js",
+        "publish": "npm run clean && tsc && update_version && npm publish"
     },
     "devDependencies": {
         "@types/jasmine": "^2.6.3",

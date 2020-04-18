@@ -1,9 +1,10 @@
 import { IDigitalInput } from "./IO/DigitalInput";
-import { IDigitalOutput, DigitalOutput } from "./IO/DigitalOutput";
-import { IAdcInput } from "./IO/AdcInput";
-import { IPwmOutput } from "./IO/PwmOutput";
+import { IDigitalOutput } from "./IO/DigitalOutput";
+import { IAnalogInput } from "./IO/AnalogInput";
+import { IAnalogOutput } from "./IO/AnalogOutput";
 import { IDisplay } from "./IO/Display";
 import { IBoardConnector } from "../Connectors/IBoardConnector";
+import { Clock } from "./IO/Clock";
 export declare class Board {
     readonly Input1: IDigitalInput;
     readonly Input2: IDigitalInput;
@@ -12,10 +13,10 @@ export declare class Board {
     readonly Input5: IDigitalInput;
     readonly Input6: IDigitalInput;
     readonly Input7: IDigitalInput;
-    readonly Adc1: IAdcInput;
-    readonly Adc2: IAdcInput;
-    readonly Adc3: IAdcInput;
-    readonly Adc4: IAdcInput;
+    readonly Adc1: IAnalogInput;
+    readonly Adc2: IAnalogInput;
+    readonly Adc3: IAnalogInput;
+    readonly Adc4: IAnalogInput;
     readonly Output1: IDigitalOutput;
     readonly Output2: IDigitalOutput;
     readonly Output3: IDigitalOutput;
@@ -23,11 +24,11 @@ export declare class Board {
     readonly Output5: IDigitalOutput;
     readonly Output6: IDigitalOutput;
     readonly Output7: IDigitalOutput;
-    readonly XXXXXX: DigitalOutput;
-    readonly Pwm1: IPwmOutput;
-    readonly Pwm2: IPwmOutput;
-    readonly Pwm3: IPwmOutput;
-    readonly Pwm4: IPwmOutput;
+    readonly Clock1: Clock;
+    readonly Pwm1: IAnalogOutput;
+    readonly Pwm2: IAnalogOutput;
+    readonly Pwm3: IAnalogOutput;
+    readonly Pwm4: IAnalogOutput;
     readonly Display1: IDisplay;
     constructor(connector: IBoardConnector);
     private IoByAddr;

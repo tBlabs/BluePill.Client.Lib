@@ -1,0 +1,1 @@
+{"version":3,"file":"Clock.js","sourceRoot":"","sources":["../../../src/Board/IO/Clock.ts"],"names":[],"mappings":";;AAGA,yCAAsC;AAStC,MAAa,KAAM,SAAQ,mBAAQ;IAE/B,YACW,IAAU,EACT,UAA2B;QAEnC,KAAK,CAAC,IAAI,EAAE,UAAU,CAAC,CAAC;QAHjB,SAAI,GAAJ,IAAI,CAAM;QACT,eAAU,GAAV,UAAU,CAAiB;IAGvC,CAAC;IAED,IAAW,QAAQ;QAEf,OAAO,UAAU,CAAC;IACtB,CAAC;CACJ;AAbD,sBAaC"}

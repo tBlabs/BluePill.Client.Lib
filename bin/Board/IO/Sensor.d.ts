@@ -13,7 +13,7 @@ export declare abstract class Sensor extends IO {
     OnFalling(callback: StateChangeCallback): void;
     protected CallBasicEvents(stateChange: StateChange): void;
     private value;
-    readonly Value: number;
+    get Value(): number;
     UpdateFromHost(addr: Addr, stateChange: StateChange): void;
     abstract ExecuteEvents(stateChange: StateChange): void;
 }

@@ -10,7 +10,8 @@ export declare abstract class Actuator extends IO {
     OnChange(callback: StateChangeCallback): void;
     constructor(addr: number, connector: IBoardConnector);
     private value;
-    Value: number;
+    set Value(value: number);
+    get Value(): number;
     UpdateFromHost(addr: Addr, stateChange: StateChange): void;
     ExecuteEvents(stateChange: StateChange): void;
 }

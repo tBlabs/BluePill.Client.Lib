@@ -1,20 +1,15 @@
-import { Addr } from "../Addr";
-import { Actuator } from "../IO/Actuator";
-import { IBoardConnector } from "../../Connectors/IBoardConnector";
 import { StateChangeCallback } from "../StateChangeCallback";
-export interface IDigitalOutput {
+import { Addr } from "../Addr";
+import { IBoardConnector } from "../../Connectors/IBoardConnector";
+import { Actuator } from "./Actuator";
+export interface IClock {
     Value: number;
-    On(): void;
-    Off(): void;
-    Toggle(): void;
+    MaxValue: number;
     OnChange(callback: StateChangeCallback): void;
 }
-export declare class DigitalOutput extends Actuator {
+export declare class Clock extends Actuator implements IClock {
     addr: Addr;
     private connection;
     constructor(addr: Addr, connection: IBoardConnector);
     get MaxValue(): number;
-    On(): void;
-    Off(): void;
-    Toggle(): void;
 }

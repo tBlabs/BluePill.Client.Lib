@@ -2,11 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const DigitalInput_1 = require("./IO/DigitalInput");
 const DigitalOutput_1 = require("./IO/DigitalOutput");
-const AdcInput_1 = require("./IO/AdcInput");
-const PwmOutput_1 = require("./IO/PwmOutput");
+const AnalogInput_1 = require("./IO/AnalogInput");
+const AnalogOutput_1 = require("./IO/AnalogOutput");
 const Display_1 = require("./IO/Display");
 const Addr_1 = require("./Addr");
 const IO_1 = require("./IO/IO");
+const Clock_1 = require("./IO/Clock");
 class Board {
     constructor(connector) {
         this.Input1 = new DigitalInput_1.DigitalInput(Addr_1.Addr.Input1);
@@ -16,10 +17,10 @@ class Board {
         this.Input5 = new DigitalInput_1.DigitalInput(Addr_1.Addr.Input5);
         this.Input6 = new DigitalInput_1.DigitalInput(Addr_1.Addr.Input6);
         this.Input7 = new DigitalInput_1.DigitalInput(Addr_1.Addr.Input7);
-        this.Adc1 = new AdcInput_1.AdcInput(Addr_1.Addr.Adc1);
-        this.Adc2 = new AdcInput_1.AdcInput(Addr_1.Addr.Adc2);
-        this.Adc3 = new AdcInput_1.AdcInput(Addr_1.Addr.Adc3);
-        this.Adc4 = new AdcInput_1.AdcInput(Addr_1.Addr.Adc4);
+        this.Adc1 = new AnalogInput_1.AnalogInput(Addr_1.Addr.Adc1);
+        this.Adc2 = new AnalogInput_1.AnalogInput(Addr_1.Addr.Adc2);
+        this.Adc3 = new AnalogInput_1.AnalogInput(Addr_1.Addr.Adc3);
+        this.Adc4 = new AnalogInput_1.AnalogInput(Addr_1.Addr.Adc4);
         this.Output1 = new DigitalOutput_1.DigitalOutput(Addr_1.Addr.Output1, connector);
         this.Output2 = new DigitalOutput_1.DigitalOutput(Addr_1.Addr.Output2, connector);
         this.Output3 = new DigitalOutput_1.DigitalOutput(Addr_1.Addr.Output3, connector);
@@ -27,11 +28,11 @@ class Board {
         this.Output5 = new DigitalOutput_1.DigitalOutput(Addr_1.Addr.Output5, connector);
         this.Output6 = new DigitalOutput_1.DigitalOutput(Addr_1.Addr.Output6, connector);
         this.Output7 = new DigitalOutput_1.DigitalOutput(Addr_1.Addr.Output7, connector);
-        this.Pwm1 = new PwmOutput_1.PwmOutput(Addr_1.Addr.Pwm1, connector);
-        this.Pwm2 = new PwmOutput_1.PwmOutput(Addr_1.Addr.Pwm2, connector);
-        this.Pwm3 = new PwmOutput_1.PwmOutput(Addr_1.Addr.Pwm3, connector);
-        this.Pwm4 = new PwmOutput_1.PwmOutput(Addr_1.Addr.Pwm4, connector);
-        this.XXXXXX = new DigitalOutput_1.DigitalOutput(Addr_1.Addr.RTC, connector);
+        this.Pwm1 = new AnalogOutput_1.AnalogOutput(Addr_1.Addr.Pwm1, connector);
+        this.Pwm2 = new AnalogOutput_1.AnalogOutput(Addr_1.Addr.Pwm2, connector);
+        this.Pwm3 = new AnalogOutput_1.AnalogOutput(Addr_1.Addr.Pwm3, connector);
+        this.Pwm4 = new AnalogOutput_1.AnalogOutput(Addr_1.Addr.Pwm4, connector);
+        this.Clock1 = new Clock_1.Clock(Addr_1.Addr.RTC, connector);
         this.Display1 = new Display_1.Display(Addr_1.Addr.Display1, Addr_1.Addr.Display1Dot, connector);
         connector.OnUpdate = (addr, stateChange) => {
             try {

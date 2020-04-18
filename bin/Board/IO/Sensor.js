@@ -31,6 +31,7 @@ class Sensor extends IO_1.IO {
         return this.value;
     }
     UpdateFromHost(addr, stateChange) {
+        //  console.log('UPDATE', addr, stateChange);
         this.value = stateChange.Current.Value;
         this.ExecuteEvents(stateChange);
     }

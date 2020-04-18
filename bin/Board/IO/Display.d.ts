@@ -17,11 +17,13 @@ export declare class Display extends IO implements IDisplay {
     UpdateFromHost(addr: Addr, stateChange: StateChange): void;
     private onValueChangeCallback?;
     OnValueChange(callback: StateChangeCallback): void;
-    readonly MaxValue: number;
-    readonly MaxDotValue: number;
+    get MaxValue(): number;
+    get MaxDotValue(): number;
     private value;
     private dot;
     constructor(valueAddr: any, dotAddr: any, connection: IBoardConnector);
-    Value: number;
-    Dot: number;
+    set Value(value: number);
+    get Value(): number;
+    set Dot(value: number);
+    get Dot(): number;
 }

@@ -6,7 +6,7 @@ export declare class BoardSocketConnector implements IBoardConnector {
     Disconnect(): void;
     OnUpdate: (addr: Addr, stateChange: StateChange) => void;
     private MapIoStateToStateChange;
-    constructor(connectionString: string);
+    constructor(connectionString: string, log?: boolean);
     Set(addr: any, value: any): void;
     Get(addr: any): void;
 }

@@ -17,7 +17,7 @@ export declare class DigitalInput extends Sensor implements IDigitalInput {
     OnKeyPress(callback: StateChangeCallback): void;
     OnLongKeyPress(callback: StateChangeCallback): void;
     constructor(addr: Addr);
-    readonly MaxValue: number;
+    get MaxValue(): number;
     ExecuteEvents(stateChange: StateChange): void;
     private IsPress;
 }

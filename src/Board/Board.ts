@@ -67,6 +67,7 @@ export class Board
         {
             try
             {
+               
                 const io: IO = this.IoByAddr(addr);
 
                 io.UpdateFromHost(addr, stateChange);
